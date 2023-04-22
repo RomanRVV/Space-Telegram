@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5048df25-4635-463d-98e9-73a27c60dca1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/telegram_bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_EPIC_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_EPIC_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_EPIC_13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_EPIC_15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_EPIC_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_EPIC_17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/nasa_apod_0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/nasa_apod_1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_11.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/nasa_apod_2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/nasa_apod_3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/nasa_apod_4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_7.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/nasa_apod_9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2Obu8bpwLa5morHSURzuoZi5nzK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5048df25-4635-463d-98e9-73a27c60dca1" name="Changes" comment="" />
+      <created>1681841443223</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681841443223</updated>
+    </task>
+    <servers />
+  </component>
+</project>
