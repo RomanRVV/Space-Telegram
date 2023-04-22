@@ -12,7 +12,7 @@ def fetch_epic_pic(api_key, number_of_pic):
     response.raise_for_status()
 
     pic_info = response.json()
-    for count, pic in enumerate(pic_info[:number_of_pic]):
+    for count, pic in enumerate(pic_info[(-number_of_pic-1):-1]):
         aDate = datetime.date.fromisoformat(pic)
         formatted_date = aDate.strftime('%Y/%m/%d')
         url = f"https://api.nasa.gov/EPIC/api/natural/date/{aDate}?api_key={api_key}"
