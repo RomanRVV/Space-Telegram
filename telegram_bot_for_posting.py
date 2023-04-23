@@ -5,6 +5,7 @@ import time
 import argparse
 import telegram
 
+
 def pic_list_create(pic_info_list):
     image_name_list = []
     for pic_info in pic_info_list:
@@ -39,7 +40,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-

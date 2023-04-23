@@ -1,8 +1,8 @@
-# Скачивание картинок с космической тематикой 
+# Скачивание и постниг картинок с космической тематикой 
 
-Проект принимает количество картинок, которые нужно скачать и путь где они будут сохранены.
+Проект умеет скачивать фотографии с сервисов NASA APOD, NASA EPIC и SpaceX.
 
-Далее скачивает картинки с космической тематикой с 3 разных сервисов, а именно SpaceX, NASA APOD и NASA EPIC.
+А после выкладывать их в телеграмм канал с заданной переодичностью.
 
 
 
@@ -19,6 +19,14 @@
 `NASA_API_KEY = 9XrvLxvH7I2gvsa1ssiYxbDxaGm2hzQbjhx4faBl` 
 (Что должно быть в файле .env )
 
+Также необходимо внести в .env `telegram api key` и `telegram chat id`.
+Подробная инструкция, как создать канал и телеграм бота 
+[ссылка](https://smmplanner.com/blog/otlozhennyj-posting-v-telegram/)
+
+`TG_API_KEY = 54124594394:AAHDpclK_EYq7yPrXszbcSnjO7QYdqgv5B4`
+`TG_CHAT_ID = @test_test_tg`
+(Что должно быть в файле .env )
+
 Python3 должен быть уже установлен. 
 Затем используйте `pip` (или `pip3`, есть конфликт с Python2) для установки зависимостей:
 ```
@@ -28,11 +36,24 @@ pip install -r requirements.txt
 
 1 пример:
 ```
-python main.py 5 images/  
+python fetch_spacex_images.py --launch_id 5eb87d47ffd86e000604b38a
 ```
 Результат:
-`Было скачено по 5 картинок с NASA APOD и EPIC, и также картинки с SpaceX`
+`Были скачены фотографии с сайта SpaceX, с конкретного запуска ракеты`
 
+2 пример:
+```
+python fetch_nasa_apod_images.py 5
+```
+Результат:
+`Скачивает 5 фотографий с сервиса NASA APOD`
+
+3 пример:
+```
+python telegram_bot_for_posting.py --time 5
+```
+Результат:
+`Постит картинки в телеграмм канал раз в 5 секунд`
 
 ### Цель проекта
 
