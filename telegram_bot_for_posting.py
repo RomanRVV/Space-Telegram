@@ -7,7 +7,7 @@ import telegram
 from pathlib import Path
 
 
-def pic_list_create(pic_info_list):
+def create_pic_list(pic_info_list):
     image_name_list = []
     for pic_info in pic_info_list:
         pic_name_list = pic_info[2]
@@ -31,7 +31,7 @@ def main():
     pic_info_list = os.walk(Path('images/'))
 
     while True:
-        for image in pic_list_create(pic_info_list):
+        for image in create_pic_list(pic_info_list):
             with open(Path(f'images/{image}'), 'rb') as file:
                 bot.sendDocument(chat_id=chat_id, document=file)
                 time.sleep(args.time)

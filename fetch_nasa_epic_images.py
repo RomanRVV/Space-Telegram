@@ -19,10 +19,10 @@ def fetch_epic_pic(api_key, number_of_pic):
         url = f"https://api.nasa.gov/EPIC/api/natural/date/{a_date}"
         response = requests.get(url, params=payload)
         response.raise_for_status()
-        download_pic_url = f'https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/' \
-                           f'{response.json()[0]["image"]}.png'
+        pic_url_for_download = f'https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/' \
+                               f'{response.json()[0]["image"]}.png'
         filename = f'nasa_EPIC_{count}.png'
-        response = requests.get(download_pic_url, params=payload)
+        response = requests.get(pic_url_for_download, params=payload)
         try:
             response.raise_for_status()
             download_pic(response.url, filename)

@@ -11,7 +11,6 @@ def download_pic(url, filename):
 
     with open(Path(f'images/{filename}'), 'wb') as file:
         file.write(response.content)
-    return
 
 
 def find_file_ext(url):
