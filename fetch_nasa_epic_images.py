@@ -19,12 +19,12 @@ def fetch_epic_pic(api_key, number_of_pic):
         url = f"https://api.nasa.gov/EPIC/api/natural/date/{aDate}"
         response = requests.get(url, params=payload)
         response.raise_for_status()
+        download_pic_url = f'https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/' \
+                           f'{response.json()[0]["image"]}.png'
+        filename = f'nasa_EPIC_{count}.png'
+        response = requests.get(download_pic_url, params=payload)
         try:
-            download_pic_url = f'https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/' \
-                               f'{response.json()[0]["image"]}.png'
-            response = requests.get(download_pic_url, params=payload)
             response.raise_for_status()
-            filename = f'nasa_EPIC_{count}.png'
             download_pic(response.url, filename)
         except IndexError:
             print('В сервисе EPIC отсутствует картинка на дату:', formatted_date)
