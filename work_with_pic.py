@@ -9,7 +9,7 @@ def download_pic(url, filename):
     response = requests.get(url)
     response.raise_for_status()
 
-    with open(f'images/{filename}', 'wb') as file:
+    with open(Path(f'images/{filename}'), 'wb') as file:
         file.write(response.content)
     return
 

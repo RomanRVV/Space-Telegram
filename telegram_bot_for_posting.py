@@ -4,6 +4,7 @@ import random
 import time
 import argparse
 import telegram
+from pathlib import Path
 
 
 def pic_list_create(pic_info_list):
@@ -27,11 +28,11 @@ def main():
     tg_api_key = os.environ['TG_API_KEY']
     chat_id = os.environ['TG_CHAT_ID']
     bot = telegram.Bot(token=tg_api_key)
-    pic_info_list = os.walk('images/')
+    pic_info_list = os.walk(Path('images/'))
 
     while True:
         for image in pic_list_create(pic_info_list):
-            bot.sendDocument(chat_id=chat_id, document=open(f'images/{image}', 'rb'))
+            bot.sendDocument(chat_id=chat_id, document=open(Path(f'images/{image}'), 'rb'))
             time.sleep(args.time)
 
 
