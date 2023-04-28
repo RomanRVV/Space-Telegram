@@ -24,8 +24,8 @@ def main():
     parser.add_argument('--time', help='Сколько секунд', default=14400)
     args = parser.parse_args()
     load_dotenv(find_dotenv())
-    tg_api_key = os.getenv('TG_API_KEY')
-    chat_id = os.getenv('TG_CHAT_ID')
+    tg_api_key = os.environ['TG_API_KEY']
+    chat_id = os.environ['TG_CHAT_ID']
     bot = telegram.Bot(token=tg_api_key)
     pic_info_list = (os.walk('images/'))
 
