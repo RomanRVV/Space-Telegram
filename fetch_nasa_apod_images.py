@@ -17,10 +17,13 @@ def fetch_apod_pic(api_key, number_of_pic):
     apod_pic = response.json()
     pic_list = []
     for pic in apod_pic:
-        try:
-            pic_list.append(pic['thumbnail_url'])
-        except KeyError:
-            pic_list.append(pic['url'])
+        if pic['url']:
+            try:
+                pic_list.append(pic['thumbnail_url'])
+            except KeyError:
+                pic_list.append(pic['url'])
+        else:
+            print(pic['date'], 'На эту дату нет фото')
 
     for count, pic in enumerate(pic_list):
         file_ext = find_file_ext(pic)
