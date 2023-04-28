@@ -14,9 +14,9 @@ def fetch_epic_pic(api_key, number_of_pic):
 
     pic_info = response.json()
     for count, pic in enumerate(pic_info[(-number_of_pic-1):-1]):
-        aDate = datetime.date.fromisoformat(pic)
-        formatted_date = aDate.strftime('%Y/%m/%d')
-        url = f"https://api.nasa.gov/EPIC/api/natural/date/{aDate}"
+        a_date = datetime.date.fromisoformat(pic)
+        formatted_date = a_date.strftime('%Y/%m/%d')
+        url = f"https://api.nasa.gov/EPIC/api/natural/date/{a_date}"
         response = requests.get(url, params=payload)
         response.raise_for_status()
         download_pic_url = f'https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/' \
@@ -38,9 +38,9 @@ def main():
     )
     parser.add_argument('number_of_pic', help='Сколько картинок нужно скачать')
     args = parser.parse_args()
-    NASA_API_KEY = os.environ['NASA_API_KEY']
+    nasa_api_key = os.environ['NASA_API_KEY']
     try:
-        fetch_epic_pic(NASA_API_KEY, int(args.number_of_pic))
+        fetch_epic_pic(nasa_api_key, int(args.number_of_pic))
         print('Все фото скачены')
     except ValueError:
         print('Вы ввели не число')

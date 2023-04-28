@@ -39,9 +39,9 @@ def main():
     )
     parser.add_argument('number_of_pic', help='Сколько картинок нужно скачать')
     args = parser.parse_args()
-    NASA_API_KEY = os.environ['NASA_API_KEY']
+    nasa_api_key = os.environ['NASA_API_KEY']
     try:
-        fetch_apod_pic(NASA_API_KEY, int(args.number_of_pic))
+        fetch_apod_pic(nasa_api_key, int(args.number_of_pic))
         print('Все фото скачены')
     except ValueError:
         print('Вы ввели не число')
