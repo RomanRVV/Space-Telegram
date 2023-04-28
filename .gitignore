@@ -153,3 +153,5 @@ cython_debug/
 
 Scripts/
 .idea
+
+Scripts
