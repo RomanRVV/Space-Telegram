@@ -21,7 +21,7 @@ def main():
         description='Укажите раз в сколько секунд будет публиковаться картинка'
                     '(без указания аргумента задержка по умолчанию будет 4 часа)'
     )
-    parser.add_argument('--time', help='Сколько секунд')
+    parser.add_argument('--time', help='Сколько секунд', default=14400)
     args = parser.parse_args()
     load_dotenv(find_dotenv())
     tg_api_key = os.getenv('TG_API_KEY')
@@ -32,10 +32,7 @@ def main():
     while True:
         for image in pic_list_create(pic_info_list):
             bot.sendDocument(chat_id=chat_id, document=open(f'images/{image}', 'rb'))
-            if args.time:
-                time.sleep(args.time)
-            else:
-                time.sleep(14400)
+            time.sleep(args.time)
 
 
 if __name__ == '__main__':

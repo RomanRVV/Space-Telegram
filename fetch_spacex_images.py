@@ -23,12 +23,9 @@ def main():
     parser = argparse.ArgumentParser(
         description='Скачивает картинки с запуска ракеты'
     )
-    parser.add_argument('--launch_id', help='id запуска ракеты')
+    parser.add_argument('--launch_id', help='id запуска ракеты', default='latest')
     args = parser.parse_args()
-    if args.launch_id:
-        fetch_spacex_last_launch(args.launch_id)
-    else:
-        fetch_spacex_last_launch('latest')
+    fetch_spacex_last_launch(args.launch_id)
 
 
 if __name__ == '__main__':
