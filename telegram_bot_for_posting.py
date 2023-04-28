@@ -32,8 +32,9 @@ def main():
 
     while True:
         for image in pic_list_create(pic_info_list):
-            bot.sendDocument(chat_id=chat_id, document=open(Path(f'images/{image}'), 'rb'))
-            time.sleep(args.time)
+            with open(Path(f'images/{image}'), 'rb') as file:
+                bot.sendDocument(chat_id=chat_id, document=file)
+                time.sleep(args.time)
 
 
 if __name__ == '__main__':
