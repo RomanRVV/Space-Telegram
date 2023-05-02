@@ -15,7 +15,11 @@ def download_pic(url, filename):
 
 def find_file_ext(url):
     url_tuple = urlsplit(url)
-    path = unquote(url_tuple[2])
-    file_name = split(path)[1]
-    file_ext = splitext(file_name)[1]
-    return file_ext
+    path_to_file = split(unquote(url_tuple.path))
+    path_to_image, image_name = path_to_file
+    image = splitext(image_name)
+    name, ext = image
+    return ext
+
+
+
