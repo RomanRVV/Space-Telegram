@@ -9,10 +9,8 @@ from pathlib import Path
 
 def create_image_for_posting(pics_info):
     images_name = []
-    for pic_info in pics_info:
-        pics_name = pic_info[2]
-        for pic_name in pics_name:
-            images_name.append(pic_name)
+    for pic_name in pics_info:
+        images_name.append(pic_name)
     random.shuffle(images_name)
     return images_name
 
@@ -28,14 +26,19 @@ def main():
     tg_api_key = os.environ['TG_API_KEY']
     chat_id = os.environ['TG_CHAT_ID']
     bot = telegram.Bot(token=tg_api_key)
-    pics_info = os.walk(Path('images/'))
+    pics_info = Path('images/').glob('*.*')
 
     while True:
         for image in create_image_for_posting(pics_info):
-            with open(Path(f'images/{image}'), 'rb') as file:
+            with open(Path(image), 'rb') as file:
                 bot.sendDocument(chat_id=chat_id, document=file)
-                time.sleep(args.time)
+                time.sleep(int(args.time))
 
 
 if __name__ == '__main__':
     main()
+
+
+
+
+
