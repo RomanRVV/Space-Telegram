@@ -32,8 +32,11 @@ def main():
     while True:
         for image in create_image_for_posting(pics_info):
             with open(Path(image), 'rb') as file:
-                bot.sendDocument(chat_id=chat_id, document=file)
-                time.sleep(int(args.time))
+                try:
+                    bot.sendDocument(chat_id=chat_id, document=file)
+                    time.sleep(int(args.time))
+                except telegram.error.NetworkError:
+                    time.sleep(10)
 
 
 if __name__ == '__main__':
