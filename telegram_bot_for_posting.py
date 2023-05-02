@@ -21,12 +21,13 @@ def main():
                     '(без указания аргумента задержка по умолчанию будет 4 часа)'
     )
     parser.add_argument('--time', help='Сколько секунд', default=14400)
+    parser.add_argument('--path', help='Из какой папки брать картинки', default='images')
     args = parser.parse_args()
     load_dotenv(find_dotenv())
     tg_api_key = os.environ['TG_API_KEY']
     chat_id = os.environ['TG_CHAT_ID']
     bot = telegram.Bot(token=tg_api_key)
-    pics_info = Path('images/').glob('*.*')
+    pics_info = Path(args.path).glob('*.*')
 
     while True:
         for image in create_image_for_posting(pics_info):
@@ -37,8 +38,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-

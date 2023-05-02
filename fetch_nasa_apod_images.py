@@ -13,7 +13,7 @@ def create_apod_pic_list(payload):
     return apod_pics
 
 
-def fetch_apod_pic(apod_pics):
+def fetch_apod_pic(apod_pics, path):
     url_pics = []
     for pic in apod_pics:
         if pic['url']:
@@ -27,7 +27,7 @@ def fetch_apod_pic(apod_pics):
     for count, pic in enumerate(url_pics):
         file_ext = find_file_ext(pic)
         filename = f'nasa_apod_{count}{file_ext}'
-        download_pic(pic, filename)
+        download_pic(pic, filename, path)
 
 
 def main():
@@ -37,6 +37,7 @@ def main():
         description='Скачивает картинки с сервиса NASA APOD'
     )
     parser.add_argument('number_of_pic', help='Сколько картинок нужно скачать')
+    parser.add_argument('--path', help='В какую папку скачать картинки', default='images')
     args = parser.parse_args()
     nasa_api_key = os.environ['NASA_API_KEY']
     payload = {'api_key': nasa_api_key,
@@ -45,7 +46,7 @@ def main():
                }
     apod_pics = create_apod_pic_list(payload)
     try:
-        fetch_apod_pic(apod_pics)
+        fetch_apod_pic(apod_pics, args.path)
         print('Все фото скачены')
     except ValueError:
         print('Вы ввели не число')

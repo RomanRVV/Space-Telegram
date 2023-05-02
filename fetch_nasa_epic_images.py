@@ -14,7 +14,7 @@ def create_pic_info_list(payload):
     return pic_info
 
 
-def fetch_epic_pic(payload, pic, pic_number):
+def fetch_epic_pic(payload, pic, pic_number, path):
     a_date = datetime.date.fromisoformat(pic)
     formatted_date = a_date.strftime('%Y/%m/%d')
     url = f"https://api.nasa.gov/EPIC/api/natural/date/{a_date}"
@@ -26,7 +26,7 @@ def fetch_epic_pic(payload, pic, pic_number):
     response = requests.get(pic_url_for_download, params=payload)
     try:
         response.raise_for_status()
-        download_pic(response.url, filename)
+        download_pic(response.url, filename, path)
     except IndexError:
         print('В сервисе EPIC отсутствует картинка на дату:', formatted_date)
 
@@ -37,6 +37,7 @@ def main():
         description='Скачивает картинки с сервиса NASA EPIC'
     )
     parser.add_argument('number_of_pic', help='Сколько картинок нужно скачать')
+    parser.add_argument('--path', help='В какую папку скачать картинки', default='images')
     args = parser.parse_args()
     nasa_api_key = os.environ['NASA_API_KEY']
 
@@ -44,7 +45,7 @@ def main():
     pic_info = create_pic_info_list(payload)
     for count, pic in enumerate(pic_info[(-int(args.number_of_pic) - 1):-1]):
         try:
-            fetch_epic_pic(payload, pic, count)
+            fetch_epic_pic(payload, pic, count, args.path)
             print('Все фото скачены')
         except ValueError:
             print('Вы ввели не число')
