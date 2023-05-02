@@ -7,14 +7,14 @@ import telegram
 from pathlib import Path
 
 
-def create_pic_list(pic_info_list):
-    image_name_list = []
-    for pic_info in pic_info_list:
-        pic_name_list = pic_info[2]
-        for pic_name in pic_name_list:
-            image_name_list.append(pic_name)
-    random.shuffle(image_name_list)
-    return image_name_list
+def create_image_for_posting(pics_info):
+    images_name = []
+    for pic_info in pics_info:
+        pics_name = pic_info[2]
+        for pic_name in pics_name:
+            images_name.append(pic_name)
+    random.shuffle(images_name)
+    return images_name
 
 
 def main():
@@ -28,10 +28,10 @@ def main():
     tg_api_key = os.environ['TG_API_KEY']
     chat_id = os.environ['TG_CHAT_ID']
     bot = telegram.Bot(token=tg_api_key)
-    pic_info_list = os.walk(Path('images/'))
+    pics_info = os.walk(Path('images/'))
 
     while True:
-        for image in create_pic_list(pic_info_list):
+        for image in create_image_for_posting(pics_info):
             with open(Path(f'images/{image}'), 'rb') as file:
                 bot.sendDocument(chat_id=chat_id, document=file)
                 time.sleep(args.time)

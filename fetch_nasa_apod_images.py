@@ -9,22 +9,22 @@ def create_apod_pic_list(payload):
     url = 'https://api.nasa.gov/planetary/apod'
     response = requests.get(url, params=payload)
     response.raise_for_status()
-    apod_pic = response.json()
-    return apod_pic
+    apod_pics = response.json()
+    return apod_pics
 
 
-def fetch_apod_pic(apod_pic):
-    pic_list = []
-    for pic in apod_pic:
+def fetch_apod_pic(apod_pics):
+    url_pics = []
+    for pic in apod_pics:
         if pic['url']:
             try:
-                pic_list.append(pic['thumbnail_url'])
+                url_pics.append(pic['thumbnail_url'])
             except KeyError:
-                pic_list.append(pic['url'])
+                url_pics.append(pic['url'])
         else:
             print(pic['date'], 'На эту дату нет фото')
 
-    for count, pic in enumerate(pic_list):
+    for count, pic in enumerate(url_pics):
         file_ext = find_file_ext(pic)
         filename = f'nasa_apod_{count}{file_ext}'
         download_pic(pic, filename)
@@ -43,9 +43,9 @@ def main():
                'count': int(args.number_of_pic),
                'thumbs': True
                }
-    apod_pic = create_apod_pic_list(payload)
+    apod_pics = create_apod_pic_list(payload)
     try:
-        fetch_apod_pic(apod_pic)
+        fetch_apod_pic(apod_pics)
         print('Все фото скачены')
     except ValueError:
         print('Вы ввели не число')

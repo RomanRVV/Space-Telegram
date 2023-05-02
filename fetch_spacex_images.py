@@ -8,9 +8,9 @@ def fetch_spacex_last_launch(launch_id):
     url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     response = requests.get(url)
     response.raise_for_status()
-    rocket_launch_pic = response.json()['links']['flickr']['original']
-    if rocket_launch_pic:
-        for count, pic in enumerate(rocket_launch_pic):
+    rocket_launch_pics = response.json()['links']['flickr']['original']
+    if rocket_launch_pics:
+        for count, pic in enumerate(rocket_launch_pics):
             filename = f'spacex{count}.jpg'
             download_pic(pic, filename)
         print('Все фото скачены')
