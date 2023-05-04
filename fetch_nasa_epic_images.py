@@ -36,7 +36,7 @@ def main():
     parser = argparse.ArgumentParser(
         description='Скачивает картинки с сервиса NASA EPIC'
     )
-    parser.add_argument('number_of_pic', help='Сколько картинок нужно скачать')
+    parser.add_argument('number_of_pic', type=int, help='Сколько картинок нужно скачать')
     parser.add_argument('--path', help='В какую папку скачать картинки', default='images')
     args = parser.parse_args()
     nasa_api_key = os.environ['NASA_API_KEY']
